@@ -1,3 +1,14 @@
+
+import Logo from '../icons/logo_gmail_lockup_default_1x_r2.png';
+import Menu from '../icons/menu_black_24dp.svg';
+import Headericon from '../icons/search_black_24dp.svg';
+import Appicon from '../icons/clear_black_24dp.svg';
+import Search from '../icons/arrow_drop_down_black_24dp.svg';
+import Info from '../icons/help_outline_black_24dp.svg';
+import Setting from '../icons/settings_black_24dp.svg';
+import Apps from '../icons/apps_black_24dp.svg';
+import Profile from '../img/profile.jpg';
+
 function Header (){
     return (
         <header class="header">
@@ -6,12 +17,12 @@ function Header (){
       
           <div class="icons">
             <button id="header-menu" class="btn header-menu tooltip" data-info="Main menu">
-              <img src="/app/assets/icons/menu_black_24dp.svg" alt="Main menu" class="btn-icon btn-icon-alt"/>
+              <img src={Menu} alt="Main menu" class="btn-icon btn-icon-alt"/>
             </button>
           </div>
       
           <a href="#" class="header-logo" >
-            <img src="/app/assets/icons/logo_gmail_lockup_default_1x_r2.png" alt="Gmail"/>
+            <img src={Logo} alt="Gmail"/>
           </a>
       
         </div>
@@ -20,7 +31,7 @@ function Header (){
       
           <div class="icons">
             <button id="js-header-search" class="btn btn-nofill tooltip"  data-info="Search">
-              <img src="/app/assets/icons/search_black_24dp.svg" alt="Search"class="btn-icon btn-icon-alt"/>
+              <img src={Headericon} alt="Search"class="btn-icon btn-icon-alt"/>
             </button>
           </div>
       
@@ -28,13 +39,13 @@ function Header (){
           
           <div class="icons">
             <button type="reset" class="btn" data-info="Options">
-              <img src="/app/assets/icons/clear_black_24dp.svg" alt="Options" class="btn-icon btn-icon-alt"/>
+              <img src={Appicon} alt="Options" class="btn-icon btn-icon-alt"/>
             </button>
           </div>
       
           <div class="icons">
             <button id="header-search-options" class="btn tooltip" data-info="Options">
-              <img src="/app/assets/icons/arrow_drop_down_black_24dp.svg" alt="Options" class="btn-icon btn-icon-alt"/>
+              <img src={Search} alt="Options" class="btn-icon btn-icon-alt"/>
             </button>
           </div>
       
@@ -44,25 +55,25 @@ function Header (){
       
             <div class="icons">
               <button id="header-info" class="btn">
-                <img src="/app/assets/icons/help_outline_black_24dp.svg" alt="Support" class="btn-icon btn-icon-alt"/>
+                <img src={Info} alt="Support" class="btn-icon btn-icon-alt"/>
               </button>
             </div>
       
             <div class="icons">
               <button id="header-settings" class="btn" data-info="Settings">
-                <img src="/app/assets/icons/settings_black_24dp.svg" alt="Settings"  class="btn-icon btn-icon-alt"/>
+                <img src={Setting} alt="Settings"  class="btn-icon btn-icon-alt"/>
               </button>
             </div>
       
             <div class="icons">
               <button id="header-apps" class="btn" >
-                <img src="/app/assets/icons/apps_black_24dp.svg" alt="Google apps" class="btn-icon btn-icon-alt"/>
+                <img src={Apps} alt="Google apps" class="btn-icon btn-icon-alt"/>
               </button>
             </div>
       
             <div class="icons">
               <button id="header-profile" class="btn tooltip" >
-                <img src="/app/assets/img/profile.jpg" class="btn-icon header-profile"/>
+                <img src={Profile} class="btn-icon header-profile"/>
               </button>
             </div>
         </div>
