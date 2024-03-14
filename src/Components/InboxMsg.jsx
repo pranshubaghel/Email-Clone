@@ -2,7 +2,32 @@ import Menu from '../icons/check_box_outline_blank_black_24dp.svg';
 import Menubtn from '../icons/arrow_drop_down_black_24dp.svg';
 import Refresh from '../icons/refresh_black_24dp.svg';
 import More from '..//icons/more_vert_black_20dp.png';
-
+import Newer from '../icons/chevron_left_black_24dp.svg';
+import Older from '../icons/chevron_right_black_24dp.svg';
+import Inputtools from '../icons/keyboard_black_24dp.svg';
+import SelectInput from '../icons/arrow_drop_down_black_24dp.svg';
+import Select from '../icons/check_box_outline_blank_black_24dp.svg';
+import Drag from '../icons/drag_indicator_black_24dp.svg';
+import NotStarred from '../icons/star_border_black_24dp.svg';
+import Archive from '../icons/archive_black_24dp.svg';
+import Delete from '../icons/delete_black_24dp.svg';
+import MarkAs from '../icons/mark_as_unread_black_24dp.svg';
+import SnooxeBtn from '../icons/access_time_filled_black_24dp.svg';
+import ClassSelect from '../icons/check_box_outline_blank_black_24dp.svg';
+import ClassDrag from '../icons/drag_indicator_black_24dp.svg';
+import ClassStarred from '../icons/star_border_black_24dp.svg';
+import ClassArchive from '../icons/archive_black_24dp.svg';
+import DeleteBtn from '../icons/delete_black_24dp.svg';
+import MarkRead from '../icons/mark_as_unread_black_24dp.svg';
+import SnoozeBtn from '../icons/access_time_filled_black_24dp.svg';
+import SelectedBtn from '../icons/check_box_outline_blank_black_24dp.svg';
+import DragBtn from '../icons/drag_indicator_black_24dp.svg';
+import Astarred from '../icons/star_border_black_24dp.svg';
+import BtnArchie from '../icons/archive_black_24dp.svg';
+import BtnDelet from '../icons/delete_black_24dp.svg';
+import BtnUnread from '../icons/mark_as_unread_black_24dp.svg';
+import Snooje from '../icons/access_time_filled_black_24dp.svg';
+import Googlle from '../icons/open_in_new_black_24dp.svg';
 
 function Inbox() {
   return (
@@ -43,21 +68,21 @@ function Inbox() {
          
           <div class="inbox-menu-pagination-btn">
             <button class="btn btn-nofill btn-pagination">
-              <img src="/app/assets/icons/chevron_left_black_24dp.svg" alt="Newer" class="btn-icon-sm btn-icon-alt" />
+              <img src={Newer} alt="Newer" class="btn-icon-sm btn-icon-alt" />
             </button>
 
             <button class="btn btn-pagination">
-              <img src="/app/assets/icons/chevron_right_black_24dp.svg" alt="Older" class="btn-icon-sm btn-icon-alt btn-icon-hover" />
+              <img src={Older} alt="Older" class="btn-icon-sm btn-icon-alt btn-icon-hover" />
             </button>
           </div>
 
           <div class="inbox-btn-group" >
             <button class="btn-alt">
-              <img src="/app/assets/icons/keyboard_black_24dp.svg" alt="Input tools on/off" class="btn-icon-sm btn-icon-alt" />
+              <img src={Inputtools} alt="Input tools on/off" class="btn-icon-sm btn-icon-alt" />
             </button>
 
             <button class="btn-sm btn-alt">
-              <img src="/app/assets/icons/arrow_drop_down_black_24dp.svg" alt="Select input tool" class="btn-icon-sm btn-icon-alt" />
+              <img src={SelectInput}alt="Select input tool" class="btn-icon-sm btn-icon-alt" />
             </button>
           </div>
 
@@ -95,18 +120,18 @@ function Inbox() {
 
               <div class="checkbox">
                 <button class="btn">
-                  <img src="/app/assets/icons/check_box_outline_blank_black_24dp.svg" alt="Select" class="btn-icon-sm btn-icon-alt btn-icon-hover message-btn-icon" />
+                  <img src={Select} alt="Select" class="btn-icon-sm btn-icon-alt btn-icon-hover message-btn-icon" />
                 </button>
               </div>
 
               <div class="message-group-hidden">
                 <button class="btn-alt btn-nofill drag-indicator" >
-                  <img src="/app/assets/icons/drag_indicator_black_24dp.svg" alt="Drag" class="btn-icon-sm btn-icon-alt btn-icon-disabled" />
+                  <img src={Drag} alt="Drag" class="btn-icon-sm btn-icon-alt btn-icon-disabled" />
                 </button>
               </div>
 
               <button class="btn star">
-                <img src="/app/assets/icons/star_border_black_24dp.svg" alt="Not starred" class="btn-icon-sm btn-icon-alt btn-icon-hover message-btn-icon" />
+                <img src={NotStarred} alt="Not starred" class="btn-icon-sm btn-icon-alt btn-icon-hover message-btn-icon" />
               </button>
 
               <div class="message-default" >
@@ -136,19 +161,19 @@ function Inbox() {
               <div class="message-group-hidden">
                 <div class="inbox-message-item-options">
                   <button class="btn">
-                    <img src="/app/assets/icons/archive_black_24dp.svg" alt="Archive" class="btn-icon-sm btn-icon-alt btn-icon-hover" />
+                    <img src={Archive}alt="Archive" class="btn-icon-sm btn-icon-alt btn-icon-hover" />
                   </button>
 
                   <button class="btn">
-                    <img src="/app/assets/icons/delete_black_24dp.svg" alt="Delete" class="btn-icon-sm btn-icon-alt btn-icon-hover" />
+                    <img src={Delete}alt="Delete" class="btn-icon-sm btn-icon-alt btn-icon-hover" />
                   </button>
 
                   <button class="btn">
-                    <img src="/app/assets/icons/mark_as_unread_black_24dp.svg" alt="Mark as unread" class="btn-icon-sm btn-icon-alt btn-icon-hover" />
+                    <img src={MarkAs} alt="Mark as unread" class="btn-icon-sm btn-icon-alt btn-icon-hover" />
                   </button>
 
                   <button class="btn">
-                    <img src="/app/assets/icons/access_time_filled_black_24dp.svg" alt="Snooze" class="btn-icon-sm btn-icon-alt btn-icon-hover" />
+                    <img src={SnooxeBtn} alt="Snooze" class="btn-icon-sm btn-icon-alt btn-icon-hover" />
                   </button>
                 </div>
               </div>
@@ -159,19 +184,19 @@ function Inbox() {
 
               <div class="checkbox">
                 <button class="btn">
-                  <img src="/app/assets/icons/check_box_outline_blank_black_24dp.svg" alt="Select" class="btn-icon-sm btn-icon-alt btn-icon-hover message-btn-icon" />
+                  <img src={ClassSelect} alt="Select" class="btn-icon-sm btn-icon-alt btn-icon-hover message-btn-icon" />
                 </button>
               </div>
 
               <div class="message-group-hidden">
                 <button class="btn-alt btn-nofill drag-indicator" >
-                  <img src="/app/assets/icons/drag_indicator_black_24dp.svg" alt="Drag" class="btn-icon-sm btn-icon-alt btn-icon-disabled" />
+                  <img src={ClassDrag} alt="Drag" class="btn-icon-sm btn-icon-alt btn-icon-disabled" />
                 </button>
               </div>
 
               <div >
                 <button class="btn star">
-                  <img src="/app/assets/icons/star_border_black_24dp.svg" alt="Not starred" class="btn-icon-sm btn-icon-alt btn-icon-hover message-btn-icon" />
+                  <img src={ClassStarred}alt="Not starred" class="btn-icon-sm btn-icon-alt btn-icon-hover message-btn-icon" />
                 </button>
               </div>
 
@@ -202,19 +227,19 @@ function Inbox() {
               <div class="message-group-hidden" >
                 <div class="inbox-message-item-options">
                   <button class="btn">
-                    <img src="/app/assets/icons/archive_black_24dp.svg" alt="Archive" class="btn-icon-sm btn-icon-alt btn-icon-hover" />
+                    <img src={ClassArchive}alt="Archive" class="btn-icon-sm btn-icon-alt btn-icon-hover" />
                   </button>
 
                   <button class="btn">
-                    <img src="/app/assets/icons/delete_black_24dp.svg" alt="Delete" class="btn-icon-sm btn-icon-alt btn-icon-hover" />
+                    <img src={DeleteBtn}alt="Delete" class="btn-icon-sm btn-icon-alt btn-icon-hover" />
                   </button>
 
                   <button class="btn">
-                    <img src="/app/assets/icons/mark_as_unread_black_24dp.svg" alt="Mark as unread" class="btn-icon-sm btn-icon-alt btn-icon-hover" />
+                    <img src={MarkRead} alt="Mark as unread" class="btn-icon-sm btn-icon-alt btn-icon-hover" />
                   </button>
 
                   <button class="btn">
-                    <img src="/app/assets/icons/access_time_filled_black_24dp.svg" alt="Snooze" class="btn-icon-sm btn-icon-alt btn-icon-hover" />
+                    <img src={SnoozeBtn} alt="Snooze" class="btn-icon-sm btn-icon-alt btn-icon-hover" />
                   </button>
                 </div>
               </div>
@@ -225,19 +250,19 @@ function Inbox() {
 
               <div class="checkbox">
                 <button class="btn">
-                  <img src="/app/assets/icons/check_box_outline_blank_black_24dp.svg" alt="Select" class="btn-icon-sm btn-icon-alt btn-icon-hover message-btn-icon" />
+                  <img src={SelectedBtn} alt="Select" class="btn-icon-sm btn-icon-alt btn-icon-hover message-btn-icon" />
                 </button>
               </div>
 
               <div class="message-group-hidden">
                 <button class="btn-alt btn-nofill drag-indicator" >
-                  <img src="/app/assets/icons/drag_indicator_black_24dp.svg" alt="Drag" class="btn-icon-sm btn-icon-alt btn-icon-disabled" />
+                  <img src={DragBtn} alt="Drag" class="btn-icon-sm btn-icon-alt btn-icon-disabled" />
                 </button>
               </div>
 
               <div >
                 <button class="btn star">
-                  <img src="/app/assets/icons/star_border_black_24dp.svg" alt="Not starred" class="btn-icon-sm btn-icon-alt btn-icon-hover message-btn-icon" />
+                  <img src={Astarred} alt="Not starred" class="btn-icon-sm btn-icon-alt btn-icon-hover message-btn-icon" />
                 </button>
               </div>
 
@@ -268,19 +293,19 @@ function Inbox() {
               <div class="message-group-hidden" >
                 <div class="inbox-message-item-options">
                   <button class="btn">
-                    <img src="/app/assets/icons/archive_black_24dp.svg" alt="Archive" class="btn-icon-sm btn-icon-alt btn-icon-hover" />
+                    <img src={BtnArchie} alt="Archive" class="btn-icon-sm btn-icon-alt btn-icon-hover" />
                   </button>
 
                   <button class="btn">
-                    <img src="/app/assets/icons/delete_black_24dp.svg" alt="Delete" class="btn-icon-sm btn-icon-alt btn-icon-hover" />
+                    <img src={BtnDelet}alt="Delete" class="btn-icon-sm btn-icon-alt btn-icon-hover" />
                   </button>
 
                   <button class="btn">
-                    <img src="/app/assets/icons/mark_as_unread_black_24dp.svg" alt="Mark as unread" class="btn-icon-sm btn-icon-alt btn-icon-hover" />
+                    <img src={BtnUnread}alt="Mark as unread" class="btn-icon-sm btn-icon-alt btn-icon-hover" />
                   </button>
 
                   <button class="btn">
-                    <img src="/app/assets/icons/access_time_filled_black_24dp.svg" alt="Snooze" class="btn-icon-sm btn-icon-alt btn-icon-hover" />
+                    <img src={Snooje} alt="Snooze" class="btn-icon-sm btn-icon-alt btn-icon-hover" />
                   </button>
                 </div>
               </div>
@@ -302,7 +327,7 @@ function Inbox() {
                   <div class="footer-group">
                     <span> 0 GB of 15 GB used</span>
                     <span>
-                      <img src="/app/assets/icons/open_in_new_black_24dp.svg" alt="Google drive storage" class="btn-icon-alt btn-icon-sm" />
+                      <img src={Googlle}alt="Google drive storage" class="btn-icon-alt btn-icon-sm" />
                     </span>
                   </div>
 
