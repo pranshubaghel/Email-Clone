@@ -12,8 +12,8 @@ const Auth = () => {
   const getAccessToken = () => {
     const url = window.location.href
     const token = url.match(/access_token=([^&]+)/)
-    localStorage.setItem("Token", token[1])
-    console.log("Token is", localStorage.getItem("Token"));
+    // localStorage.setItem("Token", token[1])
+    // console.log("Token is", localStorage.getItem("Token"));
 
   }
   useEffect(() => (
@@ -38,7 +38,7 @@ const Auth = () => {
   }
 
   const fetchMail = (id) => {
-    // let id = '18e462bcf161bc72'
+    // let id = '18e509800a119c93'
     let token = localStorage.getItem("Token")
     const options = {
       method: 'GET',
