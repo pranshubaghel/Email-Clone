@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 const Auth = () => {
   const [accessToken, setAccessToken] = useState("")
   const handleLogin = () => {
-    const CLIENT_ID = "919505909686-f5oijgdjjn0rv4g97gfdvj395j9lhtm0.apps.googleusercontent.com";
+    const CLIENT_ID = "162506691682-lem8ioa7vth71pen6h55i6921i59oiff.apps.googleusercontent.com";
     const REDIRECT_URI = "http://localhost:3000"
     const SCOPE = "https://www.googleapis.com/auth/gmail.readonly"
     const AUTH_URL = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&scope=${SCOPE}&response_type=token`;
@@ -12,7 +12,7 @@ const Auth = () => {
   const getAccessToken = () => {
     const url = window.location.href
     const token = url.match(/access_token=([^&]+)/)
-    // localStorage.setItem("Token", token[1])
+    localStorage.setItem("Token",token && token[1])
     // console.log("Token is", localStorage.getItem("Token"));
 
   }
@@ -37,8 +37,8 @@ const Auth = () => {
       .catch(error => console.log('Error in fetching mails', error))
   }
 
-  const fetchMail = (id) => {
-    // let id = '18e509800a119c93'
+  const fetchMail = () => {
+    let id = '18e509800a119c93'
     let token = localStorage.getItem("Token")
     const options = {
       method: 'GET',
