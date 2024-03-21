@@ -1,9 +1,9 @@
 
 import { useEffect, useState } from "react";
-const Oauth = () => {
+const Ouath = () => {
     const [accessToken, setAccessToken] = useState("")
     const handleLogin = () => {
-        const CLIENT_ID = "919505909686-f5oijgdjjn0rv4g97gfdvj395j9lhtm0.apps.googleusercontent.com";
+        const CLIENT_ID = "162506691682-lem8ioa7vth71pen6h55i6921i59oiff.apps.googleusercontent.com"
         const REDIRECT_URI = "http://localhost:3000"
         const SCOPE = "https://www.googleapis.com/auth/gmail.readonly"
         const AUTH_URL = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&scope=${SCOPE}&response_type=token`;
@@ -12,8 +12,8 @@ const Oauth = () => {
     const getAccessToken = () => {
         const url = window.location.href
         const token = url.match(/access_token=([^&]+)/)
-        localStorage.setItem("Token",token[1])
-        // console.log("Token is", localStorage.getItem("Token"))
+        localStorage.setItem("Token",token && token[1])
+        console.log("Token is", localStorage.getItem("Token"))
 
     }
     useEffect(() => (
@@ -32,7 +32,7 @@ const Oauth = () => {
         }
         fetch(url,options)
         .then(response => response.json())
-        .then(json=>console.log(fetchMail(json.messages[0].id)))
+        .then(json=>console.log("Message" ,json))
         .catch(error=>console.log('Error in fetching mails',error))
     }
 
@@ -64,7 +64,7 @@ const fetchMail = (id) => {
                 <>
                     <button onClick={handleLogin}>Login with google</button>
                     <button onClick={() => getEmailData()}> Get Emails</button>
-                    <button onClick={() => fetchMail()}> Fetch Emails</button>
+                    <button onClick={() => fetchMail("18e60656483cce7e")}> Fetch Emails</button>
 
 
                 </>
@@ -78,4 +78,4 @@ const fetchMail = (id) => {
 
 
 };
-export default Oauth;
+export default Ouath;

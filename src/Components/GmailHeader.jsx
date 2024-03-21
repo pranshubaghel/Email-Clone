@@ -9,7 +9,7 @@ import Setting from '../icons/settings_black_24dp.svg';
 import Apps from '../icons/apps_black_24dp.svg';
 import Profile from '../img/profile.jpg';
 
-function Header (){
+function GmailHeader (){
     return (
         <header class="header">
 
@@ -81,4 +81,4 @@ function Header (){
       </header>
     )
 };
-export default Header;
+export default GmailHeader;
