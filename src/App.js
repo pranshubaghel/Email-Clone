@@ -7,9 +7,6 @@ import AppContainer from './Components/AppContainer';
 import Inbox from './Components/Sub-components/Inbox';
 import Sent from './Components/Sub-components/Sent';
 import GmailBody from './Components/GmailBody';
-// import Drafts from './Components/Sub-components/Drafts';
-// import Snoozed from './Components/Sub-components/Snoozed';
-// import Starred from './Components/Sub-components/Starred';
 
 
 
@@ -18,7 +15,7 @@ function App() {
   return (
     <>
       <div className="body-wrapper" >
-        {/* <Ouath/> */}
+      
         <GmailHeader />
         <LeftsideBar />
         <AppContainer/>
@@ -26,11 +23,8 @@ function App() {
         <Route path="/" element={<GmailBody params = "" />} />
         <Route path="/Inbox" element={<GmailBody params ="Inbox" />} />
         <Route path="/Sent" element={<GmailBody params = "Sent"/>} />
-        {/* <Route path= "/Starred" element={<GmailBody params = "Starred"/>}/>
-        <Route path= "/Drafts" element = {<GmailBody params = "Drafts"/>}/>
-        <Route path= "/Snoozed" element = {<GmailBody params = "Snoozed"/>}/> */}
+        
         </Routes> 
-        {/* <Rightside/> */}
         <AppContainer/>
 
 

@@ -117,10 +117,6 @@ function GmailBody ({params}) {
         {renderComponent(params)}
           <div class="mail">
 
-        
-
-
-<div/>
 
           <footer class="activity">
             <div class="footer-container">

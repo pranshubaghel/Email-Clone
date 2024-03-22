@@ -1,26 +1,26 @@
 import React from "react";
 import { useEffect} from "react";
-import Select from '../icons/check_box_outline_blank_black_24dp.svg';
-import Drag from '../icons/drag_indicator_black_24dp.svg';
-import NotStarred from '../icons/star_border_black_24dp.svg';
-import Archive from '../icons/archive_black_24dp.svg';
-import Delete from '../icons/delete_black_24dp.svg';
-import MarkAs from '../icons/mark_as_unread_black_24dp.svg';
-import SnooxeBtn from '../icons/access_time_filled_black_24dp.svg';
-import ClassSelect from '../icons/check_box_outline_blank_black_24dp.svg';
-import ClassDrag from '../icons/drag_indicator_black_24dp.svg';
-import ClassStarred from '../icons/star_border_black_24dp.svg';
-import ClassArchive from '../icons/archive_black_24dp.svg';
-import DeleteBtn from '../icons/delete_black_24dp.svg';
-import MarkRead from '../icons/mark_as_unread_black_24dp.svg';
-import SnoozeBtn from '../icons/access_time_filled_black_24dp.svg';
-import SelectedBtn from '../icons/check_box_outline_blank_black_24dp.svg';
-import DragBtn from '../icons/drag_indicator_black_24dp.svg';
-import Astarred from '../icons/star_border_black_24dp.svg';
-import BtnArchie from '../icons/archive_black_24dp.svg';
-import BtnDelet from '../icons/delete_black_24dp.svg';
-import BtnUnread from '../icons/mark_as_unread_black_24dp.svg';
-import Snooje from '../icons/access_time_filled_black_24dp.svg';
+// import Select from '../icons/check_box_outline_blank_black_24dp.svg';
+// import Drag from '../icons/drag_indicator_black_24dp.svg';
+// import NotStarred from '../icons/star_border_black_24dp.svg';
+// import Archive from '../icons/archive_black_24dp.svg';
+// import Delete from '../icons/delete_black_24dp.svg';
+// import MarkAs from '../icons/mark_as_unread_black_24dp.svg';
+// import SnooxeBtn from '../icons/access_time_filled_black_24dp.svg';
+// import ClassSelect from '../icons/check_box_outline_blank_black_24dp.svg';
+// import ClassDrag from '../icons/drag_indicator_black_24dp.svg';
+// import ClassStarred from '../icons/star_border_black_24dp.svg';
+// import ClassArchive from '../icons/archive_black_24dp.svg';
+// import DeleteBtn from '../icons/delete_black_24dp.svg';
+// import MarkRead from '../icons/mark_as_unread_black_24dp.svg';
+// import SnoozeBtn from '../icons/access_time_filled_black_24dp.svg';
+// import SelectedBtn from '../icons/check_box_outline_blank_black_24dp.svg';
+// import DragBtn from '../icons/drag_indicator_black_24dp.svg';
+// import Astarred from '../icons/star_border_black_24dp.svg';
+// import BtnArchie from '../icons/archive_black_24dp.svg';
+// import BtnDelet from '../icons/delete_black_24dp.svg';
+// import BtnUnread from '../icons/mark_as_unread_black_24dp.svg';
+// import Snooje from '../icons/access_time_filled_black_24dp.svg';
 const Inbox = () => {
   useEffect(() => {   
     const url = window.location.href
@@ -73,18 +73,18 @@ fetch(url,options)
 
               <div class="checkbox">
                 <button class="btn">
-                  <img src={Select} alt="Select" class="btn-icon-sm btn-icon-alt btn-icon-hover message-btn-icon" />
+                  {/* <img src={Select} alt="Select" class="btn-icon-sm btn-icon-alt btn-icon-hover message-btn-icon" /> */}
                 </button>
               </div>
 
               <div class="message-group-hidden">
                 <button class="btn-alt btn-nofill drag-indicator" >
-                  <img src={Drag} alt="Drag" class="btn-icon-sm btn-icon-alt btn-icon-disabled" />
+                  {/* <img src={Drag} alt="Drag" class="btn-icon-sm btn-icon-alt btn-icon-disabled" /> */}
                 </button>
               </div>
 
               <button class="btn star">
-                <img src={NotStarred} alt="Not starred" class="btn-icon-sm btn-icon-alt btn-icon-hover message-btn-icon" />
+                {/* <img src={NotStarred} alt="Not starred" class="btn-icon-sm btn-icon-alt btn-icon-hover message-btn-icon" /> */}
               </button>
 
               <div class="message-default" >
@@ -114,19 +114,19 @@ fetch(url,options)
               <div class="message-group-hidden">
                 <div class="inbox-message-item-options">
                   <button class="btn">
-                    <img src={Archive}alt="Archive" class="btn-icon-sm btn-icon-alt btn-icon-hover" />
+                    {/* <img src={Archive}alt="Archive" class="btn-icon-sm btn-icon-alt btn-icon-hover" /> */}
                   </button>
 
                   <button class="btn">
-                    <img src={Delete}alt="Delete" class="btn-icon-sm btn-icon-alt btn-icon-hover" />
+                    {/* <img src={Delete}alt="Delete" class="btn-icon-sm btn-icon-alt btn-icon-hover" /> */}
                   </button>
 
                   <button class="btn">
-                    <img src={MarkAs} alt="Mark as unread" class="btn-icon-sm btn-icon-alt btn-icon-hover" />
+                    {/* <img src={MarkAs} alt="Mark as unread" class="btn-icon-sm btn-icon-alt btn-icon-hover" /> */}
                   </button>
 
                   <button class="btn">
-                    <img src={SnooxeBtn} alt="Snooze" class="btn-icon-sm btn-icon-alt btn-icon-hover" />
+                    {/* <img src={SnooxeBtn} alt="Snooze" class="btn-icon-sm btn-icon-alt btn-icon-hover" /> */}
                   </button>
                 </div>
               </div>
@@ -137,19 +137,19 @@ fetch(url,options)
 
               <div class="checkbox">
                 <button class="btn">
-                  <img src={ClassSelect} alt="Select" class="btn-icon-sm btn-icon-alt btn-icon-hover message-btn-icon" />
+                  {/* <img src={ClassSelect} alt="Select" class="btn-icon-sm btn-icon-alt btn-icon-hover message-btn-icon" /> */}
                 </button>
               </div>
 
               <div class="message-group-hidden">
                 <button class="btn-alt btn-nofill drag-indicator" >
-                  <img src={ClassDrag} alt="Drag" class="btn-icon-sm btn-icon-alt btn-icon-disabled" />
+                  {/* <img src={ClassDrag} alt="Drag" class="btn-icon-sm btn-icon-alt btn-icon-disabled" /> */}
                 </button>
               </div>
 
               <div >
                 <button class="btn star">
-                  <img src={ClassStarred}alt="Not starred" class="btn-icon-sm btn-icon-alt btn-icon-hover message-btn-icon" />
+                  {/* <img src={ClassStarred}alt="Not starred" class="btn-icon-sm btn-icon-alt btn-icon-hover message-btn-icon" /> */}
                 </button>
               </div>
 
@@ -180,19 +180,19 @@ fetch(url,options)
               <div class="message-group-hidden" >
                 <div class="inbox-message-item-options">
                   <button class="btn">
-                    <img src={ClassArchive}alt="Archive" class="btn-icon-sm btn-icon-alt btn-icon-hover" />
+                    {/* <img src={ClassArchive}alt="Archive" class="btn-icon-sm btn-icon-alt btn-icon-hover" /> */}
                   </button>
 
                   <button class="btn">
-                    <img src={DeleteBtn}alt="Delete" class="btn-icon-sm btn-icon-alt btn-icon-hover" />
+                    {/* <img src={DeleteBtn}alt="Delete" class="btn-icon-sm btn-icon-alt btn-icon-hover" /> */}
                   </button>
 
                   <button class="btn">
-                    <img src={MarkRead} alt="Mark as unread" class="btn-icon-sm btn-icon-alt btn-icon-hover" />
+                    {/* <img src={MarkRead} alt="Mark as unread" class="btn-icon-sm btn-icon-alt btn-icon-hover" /> */}
                   </button>
 
                   <button class="btn">
-                    <img src={SnoozeBtn} alt="Snooze" class="btn-icon-sm btn-icon-alt btn-icon-hover" />
+                    {/* <img src={SnoozeBtn} alt="Snooze" class="btn-icon-sm btn-icon-alt btn-icon-hover" /> */}
                   </button>
                 </div>
               </div>
@@ -203,19 +203,19 @@ fetch(url,options)
 
               <div class="checkbox">
                 <button class="btn">
-                  <img src={SelectedBtn} alt="Select" class="btn-icon-sm btn-icon-alt btn-icon-hover message-btn-icon" />
+                  {/* <img src={SelectedBtn} alt="Select" class="btn-icon-sm btn-icon-alt btn-icon-hover message-btn-icon" /> */}
                 </button>
               </div>
 
               <div class="message-group-hidden">
                 <button class="btn-alt btn-nofill drag-indicator" >
-                  <img src={DragBtn} alt="Drag" class="btn-icon-sm btn-icon-alt btn-icon-disabled" />
+                  {/* <img src={DragBtn} alt="Drag" class="btn-icon-sm btn-icon-alt btn-icon-disabled" /> */}
                 </button>
               </div>
 
               <div >
                 <button class="btn star">
-                  <img src={Astarred} alt="Not starred" class="btn-icon-sm btn-icon-alt btn-icon-hover message-btn-icon" />
+                  {/* <img src={Astarred} alt="Not starred" class="btn-icon-sm btn-icon-alt btn-icon-hover message-btn-icon" /> */}
                 </button>
               </div>
 
@@ -246,19 +246,19 @@ fetch(url,options)
               <div class="message-group-hidden" >
                 <div class="inbox-message-item-options">
                   <button class="btn">
-                    <img src={BtnArchie} alt="Archive" class="btn-icon-sm btn-icon-alt btn-icon-hover" />
+                    {/* <img src={BtnArchie} alt="Archive" class="btn-icon-sm btn-icon-alt btn-icon-hover" /> */}
                   </button>
 
                   <button class="btn">
-                    <img src={BtnDelet}alt="Delete" class="btn-icon-sm btn-icon-alt btn-icon-hover" />
+                    {/* <img src={BtnDelet}alt="Delete" class="btn-icon-sm btn-icon-alt btn-icon-hover" /> */}
                   </button>
 
                   <button class="btn">
-                    <img src={BtnUnread}alt="Mark as unread" class="btn-icon-sm btn-icon-alt btn-icon-hover" />
+                    {/* <img src={BtnUnread}alt="Mark as unread" class="btn-icon-sm btn-icon-alt btn-icon-hover" /> */}
                   </button>
 
                   <button class="btn">
-                    <img src={Snooje} alt="Snooze" class="btn-icon-sm btn-icon-alt btn-icon-hover" />
+                    {/* <img src={Snooje} alt="Snooze" class="btn-icon-sm btn-icon-alt btn-icon-hover" /> */}
                   </button>
                 </div>
               </div>
