@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useEffect} from "react";
 // import Select from '../icons/check_box_outline_blank_black_24dp.svg';
 // import Drag from '../icons/drag_indicator_black_24dp.svg';
@@ -14,7 +14,7 @@ import { useEffect} from "react";
 // import DeleteBtn from '../icons/delete_black_24dp.svg';
 // import MarkRead from '../icons/mark_as_unread_black_24dp.svg';
 // import SnoozeBtn from '../icons/access_time_filled_black_24dp.svg';
-// import SelectedBtn from '../icons/check_box_outline_blank_black_24dp.svg';
+// import SelectedBtn from '../icons/check_box_outline_blank _black_24dp.svg';
 // import DragBtn from '../icons/drag_indicator_black_24dp.svg';
 // import Astarred from '../icons/star_border_black_24dp.svg';
 // import BtnArchie from '../icons/archive_black_24dp.svg';
@@ -22,6 +22,7 @@ import { useEffect} from "react";
 // import BtnUnread from '../icons/mark_as_unread_black_24dp.svg';
 // import Snooje from '../icons/access_time_filled_black_24dp.svg';
 const Inbox = () => {
+  const [data,setData] = useState([])
   useEffect(() => {   
     const url = window.location.href
     const token = url.match(/access_token=([^&]+)/)
@@ -58,17 +59,21 @@ const options = {
         'Content-Type':'application/json'
     }
 }
+let maildata = [];
 for (let message_id of id.slice(0,10)){
     
         let url =  `https://gmail.googleapis.com/gmail/v1/users/me/messages/${message_id.id}`
 fetch(url,options)
 .then(response => response.json())
-.then(json=>console.log("mails data is ===",json))
+.then(json=>{maildata.push(json)})
 .catch(error=>console.log('Error in fetching mails',error))
 }
+console.log("emails data is==", maildata);
+setData(maildata)
 }
     return (
 <>
+{console.log("data is ==", data)}
     <div class="inbox-message-item">
 
               <div class="checkbox">
