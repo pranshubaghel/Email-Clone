@@ -59,7 +59,6 @@ const options = {
     }
 }
 let maildata = [];
-// id.slice(0,10).map((value,index)=>{
   for(let message_id of id.slice(0,10)){
   // console.log("value is ", value.id)
   // console.log("index", index)
@@ -142,26 +141,6 @@ setData(maildata)
 
 </div>
 
-<div class="inbox-message-item  message-default-unread">
-
-<div class="checkbox">
-  <button class="btn">
-    {/* <img src={ClassSelect} alt="Select" class="btn-icon-sm btn-icon-alt btn-icon-hover message-btn-icon" /> */}
-  </button>
-</div>
-
-<div class="message-group-hidden">
-  <button class="btn-alt btn-nofill drag-indicator" >
-    {/* <img src={ClassDrag} alt="Drag" class="btn-icon-sm btn-icon-alt btn-icon-disabled" /> */}
-  </button>
-</div>
-
-<div >
-  <button class="btn star">
-    {/* <img src={ClassStarred}alt="Not starred" class="btn-icon-sm btn-icon-alt btn-icon-hover message-btn-icon" /> */}
-  </button>
-</div>
-</div>
 </>))}         
 </>
     );
