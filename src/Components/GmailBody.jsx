@@ -10,6 +10,7 @@ import Googlle from '../icons/open_in_new_black_24dp.svg';
 import Inbox from './Sub-components/Inbox';
 import Sent from './Sub-components/Sent';
 import Login from '../Login';
+import Drafts from './Sub-components/Drafts';
 
 
 
@@ -23,6 +24,9 @@ function GmailBody ({params}) {
       break;
       case 'Sent' :
         data = <Sent/> 
+        break ;
+        case 'Drafts' :
+        data = <Drafts/> 
         break ;
         default :
         data = <Login/>

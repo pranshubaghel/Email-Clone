@@ -22,6 +22,8 @@ function App() {
         <Route path="/" element={<GmailBody params = "" />} />
         <Route path="/Inbox" element={<GmailBody params ="Inbox" />} />
         <Route path="/Sent" element={<GmailBody params = "Sent"/>} />
+        <Route path="/Drafts" element={<GmailBody params = "Drafts"/>} />
+
         
         </Routes> 
         <AppContainer/>
