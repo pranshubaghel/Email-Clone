@@ -1,272 +1,151 @@
-
+import React, { useState } from "react";
+import { useEffect} from "react";
+// import Select from '../icons/check_box_outline_blank_black_24dp.svg';
+// import Drag from '../icons/drag_indicator_black_24dp.svg';
+// import NotStarred from '../icons/star_border_black_24dp.svg';
+// import Archive from '../icons/archive_black_24dp.svg';
+// import Delete from '../icons/delete_black_24dp.svg';
+// import MarkAs from '../icons/mark_as_unread_black_24dp.svg';
+// import SnooxeBtn from '../icons/access_time_filled_black_24dp.svg';
+// import ClassSelect from '../icons/check_box_outline_blank_black_24dp.svg';
+// import ClassDrag from '../icons/drag_indicator_black_24dp.svg';
+// import ClassStarred from '../icons/star_border_black_24dp.svg';
+// import ClassArchive from '../icons/archive_black_24dp.svg';
+// import DeleteBtn from '../icons/delete_black_24dp.svg';
+// import MarkRead from '../icons/mark_as_unread_black_24dp.svg';
+// import SnoozeBtn from '../icons/access_time_filled_black_24dp.svg';
+// import SelectedBtn from '../icons/check_box_outline_blank _black_24dp.svg';
+// import DragBtn from '../icons/drag_indicator_black_24dp.svg';
+// import Astarred from '../icons/star_border_black_24dp.svg';
+// import BtnArchie from '../icons/archive_black_24dp.svg';
+// import BtnDelet from '../icons/delete_black_24dp.svg';
+// import BtnUnread from '../icons/mark_as_unread_black_24dp.svg';
+// import Snooje from '../icons/access_time_filled_black_24dp.svg';
 const Sent = () => {
-    return(
+  const [data,setData] = useState([])
+  const convertToAMPM = (dateString) => {
+    const date = new Date(dateString);
+    return date.toLocaleTimeString('en-IN', { hour: 'numeric', minute: 'numeric', hour12: true });
+  };
+  useEffect(() => {   
+    const url = window.location.href
+    const token = url.match(/access_token=([^&]+)/)
+    if(token) {
+    localStorage.setItem("Token",token && token[1])
+    }
+    getEmailData()
+  }, [])
+  
+  const getEmailData = () => {
+    let token = localStorage.getItem("Token")
+    console.log("hello", token)
+    let url = "https://gmail.googleapis.com/gmail/v1/users/me/messages?q=in:sent"
+    const options = {
+        method : 'GET',
+        headers : {
+            'Authorization' : `Bearer ${token}`,
+            'Content-Type':'application/json'
+        }
+    }
+    fetch(url,options)
+    .then(response => response.json())
+    .then(json=>fetchMail(json.messages))
+    .catch(error=>console.log('Error in fetching mails',error))
+}
+
+const fetchMail = async (id) => {
+console.log("message id is" ,id)
+let token = localStorage.getItem("Token")
+const options = {
+    method : 'GET',
+    headers : {
+        'Authorization' : `Bearer ${token}`,
+        'Content-Type':'application/json'
+    }
+}
+let maildata = [];
+  for(let message_id of id.slice(0,10)){
+   let url =  `https://gmail.googleapis.com/gmail/v1/users/me/messages/${message_id.id}`
+  const response = await fetch(url,options)
+  const message_data = await response.json();
+  maildata.push(message_data)
+  console.log("message data is ==",maildata )
+
+}
+
+console.log("emails data is==", maildata);
+setData(maildata)
+}
+    return (
 <>
-<section class="inbox" >
-<div class="inbox-menu">
+{console.log("data is ==", data)}
+{data && data.map((value) =>(<>
+  <div class="inbox-message-item">
 
-<div class="inbox-menu-group">
-
-  <div class="inbox-btn-group" >
-    <button class="btn-alt">
-      <img src="./icons/check_box_outline_blank_black_24dp.svg" alt="Select" class="btn-icon-sm btn-icon-alt btn-icon-hover"/>
-    </button>
-
-    <button class="btn-sm btn-alt">
-      <img src="./icons/arrow_drop_down_black_24dp.svg" alt="Select" class="btn-icon-sm btn-icon-alt btn-icon-hover"/>
-    </button>
-  </div>
-
+<div class="checkbox">
   <button class="btn">
-    <img src="./icons/refresh_black_24dp.svg" alt="Refresh" class="btn-icon btn-icon-sm btn-icon-alt btn-icon-hover"/>
+    {/* <img src={Select} alt="Select" class="btn-icon-sm btn-icon-alt btn-icon-hover message-btn-icon" /> */}
   </button>
-
-  <button class="btn">
-    <img src="./icons/more_vert_black_20dp.png" alt="More" class="btn-icon btn-icon-sm btn-icon-alt btn-icon-hover"/>
-  </button>
-
 </div>
 
-<div class="inbox-menu-group">
-
-  <button class="btn-lg btn-alt" >
-    <div class="inbox-menu-pagination">
-      1-1 of 1
-    </div>
+<div class="message-group-hidden">
+  <button class="btn-alt btn-nofill drag-indicator" >
+    {/* <img src={Drag} alt="Drag" class="btn-icon-sm btn-icon-alt btn-icon-disabled" /> */}
   </button>
+</div>
 
-  <div class="inbox-menu-pagination-btn">
-    <button class="btn btn-nofill btn-pagination">
-      <img src="./icons/chevron_left_black_24dp.svg" alt="Newer" class="btn-icon-sm btn-icon-alt"/>
-    </button>
+<button class="btn star">
+  {/* <img src={NotStarred} alt="Not starred" class="btn-icon-sm btn-icon-alt btn-icon-hover message-btn-icon" /> */}
+</button>
 
-    <button class="btn btn-pagination">
-      <img src="./icons/chevron_right_black_24dp.svg" alt="Older" class="btn-icon-sm btn-icon-alt btn-icon-hover"/>
-    </button>
+<div class="message-default" >
+
+  <div class="message-sender message-content unread" >
+    <span >{value.payload.headers.find(item=>item.name == "From").value}</span>
   </div>
 
-  <div class="inbox-btn-group" >
-    <button class="btn-alt">
-      <img src="./icons/keyboard_black_24dp.svg" alt="Input tools on/off" class="btn-icon-sm btn-icon-alt" />
-    </button>
+  <div class="message-subject message-content unread">
+    <span>{value.payload.headers.find(item=>item.name == "Subject").value}</span>
+  </div>
 
-    <button class="btn-sm btn-alt">
-      <img src="./icons/arrow_drop_down_black_24dp.svg" alt="Select input tool" class="btn-icon-sm btn-icon-alt"/>
-    </button>
+  <div class="message-seperator message-content"> - </div>
+
+  <div class="message-body message-content">
+    <span>{value.snippet}</span>
+  </div>
+
+  <div class="gap message-content" > &nbsp; </div>
+
+  <div class="message-date center-text unread" >
+    <span>{convertToAMPM(value.payload.headers.find(item=>item.name == "Date").value)}</span>
   </div>
 
 </div>
 
+<div class="message-group-hidden">
+  <div class="inbox-message-item-options">
+    <button class="btn">
+      {/* <img src={Archive}alt="Archive" class="btn-icon-sm btn-icon-alt btn-icon-hover" /> */}
+    </button>
+
+    <button class="btn">
+      {/* <img src={Delete}alt="Delete" class="btn-icon-sm btn-icon-alt btn-icon-hover" /> */}
+    </button>
+
+    <button class="btn">
+      {/* <img src={MarkAs} alt="Mark as unread" class="btn-icon-sm btn-icon-alt btn-icon-hover" /> */}
+    </button>
+
+    <button class="btn">
+      {/* <img src={SnooxeBtn} alt="Snooze" class="btn-icon-sm btn-icon-alt btn-icon-hover" /> */}
+    </button>
+  </div>
 </div>
-<div class="content">
-          <div class="mail">
-              
-              <div class="inbox-message-item">
 
-                <div class="checkbox"  >
-                  <button class="btn">
-                    <img src="./icons/check_box_outline_blank_black_24dp.svg" alt="Select" class="btn-icon-sm btn-icon-alt btn-icon-hover message-btn-icon"/>
-                  </button>
-                </div>
+</div>
 
-                <div class="message-group-hidden">
-                  <button class="btn-alt btn-nofill drag-indicator" >
-                    <img src="./icons/drag_indicator_black_24dp.svg" alt="Drag" class="btn-icon-sm btn-icon-alt btn-icon-disabled" />
-                  </button>
-                </div>
-
-                <button class="btn star" >
-                  <img src="./icons/star_border_black_24dp.svg" alt="Not starred" class="btn-icon-sm btn-icon-alt btn-icon-hover message-btn-icon"/>
-                </button>
-
-                <div class="message-default" >
-
-                  <div class="message-sender message-content unread" >
-                    <span >Cascadom</span>
-                  </div>
-      
-                  <div class="message-subject message-content unread">
-                    <span>Dev Horror Stories: 👻 2000 lines of inline styles</span>
-                  </div>
-
-                  <div class="message-seperator message-content"> - </div>
-
-                  <div class="message-body message-content">
-                    <span> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Soluta error beatae optio ea, quod harum. Iure ab sed, dolores eos repudiandae inventore magnam id modi blanditiis harum at. Facere, exercitationem.</span>
-                  </div>
-                  
-                  <div class="gap message-content" > &nbsp; </div>
-
-                  <div class="message-date center-text unread" >
-                    <span>12:09 AM</span>
-                  </div>
-
-                </div>
-
-                <div class="message-group-hidden" >
-                  <div class="inbox-message-item-options">
-                    <button class="btn">
-                      <img src="./icons/archive_black_24dp.svg" alt="Archive" class="btn-icon-sm btn-icon-alt btn-icon-hover"/>
-                    </button>
-      
-                    <button class="btn">
-                      <img src="./icons/delete_black_24dp.svg" alt="Delete" class="btn-icon-sm btn-icon-alt btn-icon-hover"/>
-                    </button>
-      
-                    <button class="btn">
-                      <img src="./icons/mark_as_unread_black_24dp.svg" alt="Mark as unread" class="btn-icon-sm btn-icon-alt btn-icon-hover"/>
-                    </button>
-      
-                    <button class="btn">
-                      <img src="./icons/access_time_filled_black_24dp.svg" alt="Snooze" class="btn-icon-sm btn-icon-alt btn-icon-hover"/>
-                    </button>
-                  </div>
-                </div>
-
-              </div>
-              
-              <div class="inbox-message-item  message-default-unread">
-
-                <div class="checkbox"  >
-                  <button class="btn">
-                    <img src="./icons/check_box_outline_blank_black_24dp.svg" alt="Select" class="btn-icon-sm btn-icon-alt btn-icon-hover message-btn-icon"/>
-                  </button>
-                </div>
-
-                <div class="message-group-hidden">
-                  <button class="btn-alt btn-nofill drag-indicator" >
-                    <img src="./icons/drag_indicator_black_24dp.svg" alt="Drag" class="btn-icon-sm btn-icon-alt btn-icon-disabled" />
-                  </button>
-                </div>
-
-                <div >
-                  <button class="btn star" >
-                    <img src="./icons/star_border_black_24dp.svg" alt="Not starred" class="btn-icon-sm btn-icon-alt btn-icon-hover message-btn-icon"/>
-                  </button>
-                </div>
-
-                <div class="message-default" >
-
-                  <div class="message-sender message-content" >
-                    <span >Mr. Superman</span>
-                  </div>
-      
-                  <div class="message-subject message-content">
-                    <span>Thanks for Saving the World</span>
-                  </div>
-
-                  <div class="message-seperator message-content"> - </div>
-
-                  <div class="message-body message-content">
-                    <span> Party at my crib next weekend, amet consectetur adipisicing elit. Soluta error beatae optio ea, quod harum. Iure ab sed, dolores eos repudiandae inventore magnam id modi blanditiis harum at. Facere, exercitationem.</span>
-                  </div>
-                  
-                  <div class="gap message-content" > &nbsp; </div>
-
-                  <div class="message-date center-text" >
-                    <span>4:23 PM</span>
-                  </div>
-
-                </div>
-
-                <div class="message-group-hidden" >
-                  <div class="inbox-message-item-options">
-                    <button class="btn">
-                      <img src="./icons/archive_black_24dp.svg" alt="Archive" class="btn-icon-sm btn-icon-alt btn-icon-hover"/>
-                    </button>
-      
-                    <button class="btn">
-                      <img src="./icons/delete_black_24dp.svg" alt="Delete" class="btn-icon-sm btn-icon-alt btn-icon-hover"/>
-                    </button>
-      
-                    <button class="btn">
-                      <img src="./icons/mark_as_unread_black_24dp.svg" alt="Mark as unread" class="btn-icon-sm btn-icon-alt btn-icon-hover"/>
-                    </button>
-      
-                    <button class="btn">
-                      <img src="./icons/access_time_filled_black_24dp.svg" alt="Snooze" class="btn-icon-sm btn-icon-alt btn-icon-hover"/>
-                    </button>
-                  </div>
-                </div>
-
-              </div>
-              
-              <div class="inbox-message-item  message-default-unread">
-
-                <div class="checkbox"  >
-                  <button class="btn">
-                    <img src="./icons/check_box_outline_blank_black_24dp.svg" alt="Select" class="btn-icon-sm btn-icon-alt btn-icon-hover message-btn-icon"/>
-                  </button>
-                </div>
-
-                <div class="message-group-hidden">
-                  <button class="btn-alt btn-nofill drag-indicator" >
-                    <img src="./icons/drag_indicator_black_24dp.svg" alt="Drag" class="btn-icon-sm btn-icon-alt btn-icon-disabled"/>
-                  </button>
-                </div>
-
-                <div >
-                  <button class="btn star" >
-                    <img src="./icons/star_border_black_24dp.svg" alt="Not starred" class="btn-icon-sm btn-icon-alt btn-icon-hover message-btn-icon"/>
-                  </button>
-                </div>
-
-                <div class="message-default" >
-
-                  <div class="message-sender message-content" >
-                    <span >Jio Savvan</span>
-                  </div>
-      
-                  <div class="message-subject message-content">
-                    <span>🎉 💰 New Job who this? </span>
-                  </div>
-
-                  <div class="message-seperator message-content"> - </div>
-
-                  <div class="message-body message-content">
-                    <span> Hello, Habib! We are glad to break the news to you, amet consectetur adipisicing elit. Soluta error beatae optio ea, quod harum. Iure ab sed, dolores eos repudiandae inventore magnam id modi blanditiis harum at. Facere, exercitationem.</span>
-                  </div>
-                  
-                  <div class="gap message-content" > &nbsp; </div>
-
-                  <div class="message-date center-text" >
-                    <span>2:01 PM</span>
-                  </div>
-
-                </div>
-
-                <div class="message-group-hidden" >
-                  <div class="inbox-message-item-options">
-                    <button class="btn">
-                      <img src="./icons/archive_black_24dp.svg" alt="Archive" class="btn-icon-sm btn-icon-alt btn-icon-hover"/>
-                    </button>
-      
-                    <button class="btn">
-                      <img src="./icons/delete_black_24dp.svg" alt="Delete" class="btn-icon-sm btn-icon-alt btn-icon-hover"/>
-                    </button>
-      
-                    <button class="btn">
-                      <img src="./icons/mark_as_unread_black_24dp.svg" alt="Mark as unread" class="btn-icon-sm btn-icon-alt btn-icon-hover"/>
-                    </button>
-      
-                    <button class="btn">
-                      <img src="./icons/access_time_filled_black_24dp.svg" alt="Snooze" class="btn-icon-sm btn-icon-alt btn-icon-hover"/>
-                    </button>
-                  </div>
-                </div>
-
-              </div>
-
-          </div>
-
-
-
-
-
-        </div>
-
-    </section>
+</>))}         
 </>
     );
-}
+};
 export default Sent;

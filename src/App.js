@@ -9,13 +9,12 @@ import Sent from './Components/Sub-components/Sent';
 import GmailBody from './Components/GmailBody';
 
 
-
 function App() {
 
   return (
     <>
       <div className="body-wrapper" >
-      
+    
         <GmailHeader />
         <LeftsideBar />
         <AppContainer/>

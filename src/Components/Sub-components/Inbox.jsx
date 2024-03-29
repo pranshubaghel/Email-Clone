@@ -23,17 +23,21 @@ import { useEffect} from "react";
 // import Snooje from '../icons/access_time_filled_black_24dp.svg';
 const Inbox = () => {
   const [data,setData] = useState([])
+  const convertToAMPM = (dateString) => {
+    const date = new Date(dateString);
+    return date.toLocaleTimeString('en-IN', { hour: 'numeric', minute: 'numeric', hour12: true });
+  };
   useEffect(() => {   
     const url = window.location.href
     const token = url.match(/access_token=([^&]+)/)
     localStorage.setItem("Token",token && token[1])
     getEmailData()
   }, [])
-
+  
   const getEmailData = () => {
     let token = localStorage.getItem("Token")
     console.log("hello", token)
-    let url = "https://gmail.googleapis.com/gmail/v1/users/me/messages"
+    let url = "https://gmail.googleapis.com/gmail/v1/users/me/messages?q=in:inbox"
     const options = {
         method : 'GET',
         headers : {
@@ -60,8 +64,6 @@ const options = {
 }
 let maildata = [];
   for(let message_id of id.slice(0,10)){
-  // console.log("value is ", value.id)
-  // console.log("index", index)
    let url =  `https://gmail.googleapis.com/gmail/v1/users/me/messages/${message_id.id}`
   const response = await fetch(url,options)
   const message_data = await response.json();
@@ -114,7 +116,7 @@ setData(maildata)
   <div class="gap message-content" > &nbsp; </div>
 
   <div class="message-date center-text unread" >
-    <span>{value.payload.headers.find(item=>item.name == "Date").value}</span>
+    <span>{convertToAMPM(value.payload.headers.find(item=>item.name == "Date").value)}</span>
   </div>
 
 </div>
