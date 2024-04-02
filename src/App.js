@@ -7,6 +7,8 @@ import AppContainer from './Components/AppContainer';
 import Inbox from './Components/Sub-components/Inbox';
 import Sent from './Components/Sub-components/Sent';
 import GmailBody from './Components/GmailBody';
+import Demo from './Components/Sub-components/Demo';
+
 
 
 function App() {
@@ -14,8 +16,8 @@ function App() {
   return (
     <>
       <div className="body-wrapper" >
-    
-        <GmailHeader />
+    <Demo/>
+         {/* <GmailHeader />
         <LeftsideBar />
         <AppContainer/>
         <Routes>
@@ -26,8 +28,8 @@ function App() {
 
         
         </Routes> 
-        <AppContainer/>
-
+        
+         <AppContainer/> */}
 
 
       </div>

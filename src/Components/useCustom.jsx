@@ -56,4 +56,4 @@ function useCustom(apiUrl) {
     return data 
 }
 
-export default useCustom
+export default useCustom;
