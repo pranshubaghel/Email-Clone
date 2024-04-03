@@ -9,7 +9,7 @@ import SelectInput from '../icons/arrow_drop_down_black_24dp.svg';
 import Googlle from '../icons/open_in_new_black_24dp.svg';
 import Inbox from './Sub-components/Inbox';
 import Sent from './Sub-components/Sent';
-import Login from '../Login';
+import Login from './Sub-components/Login';
 import Drafts from './Sub-components/Drafts';
 
 

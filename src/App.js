@@ -16,8 +16,8 @@ function App() {
   return (
     <>
       <div className="body-wrapper" >
-    <Demo/>
-         {/* <GmailHeader />
+        <Demo/>
+         <GmailHeader />
         <LeftsideBar />
         <AppContainer/>
         <Routes>
@@ -29,7 +29,7 @@ function App() {
         
         </Routes> 
         
-         <AppContainer/> */}
+         <AppContainer/>
 
 
       </div>
