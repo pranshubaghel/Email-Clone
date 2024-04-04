@@ -16,7 +16,7 @@ function App() {
   return (
     <>
       <div className="body-wrapper" >
-        <Demo/>
+        
          <GmailHeader />
         <LeftsideBar />
         <AppContainer/>
